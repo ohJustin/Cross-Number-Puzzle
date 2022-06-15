@@ -1,0 +1,278 @@
+void PuzzleEngine::loadKeyWords() {
+	cout << endl;
+	cout << "Four(s) ";
+	for (int b = 0; b < 4; ++b) {
+		string current = "";
+	//Next String.
+		for (int i = 0; i < 4; ++i) {
+			current += (char(rand() % 10) + '0');								// (char(rand() % 10) + '0')
+		}
+		this->numberList6.push_back(current);
+		cout << this->numberList6[b] << " ";
+	}
+	cout << endl;
+	cout << "Eight(s) ";
+	for (int b = 0; b < 7; ++b) {
+		string current = "";
+		//Next String.
+		for (int i = 0; i < 8; ++i) {
+			current += (char(rand() % 10) + '0');								// (char(rand() % 10) + '0')
+		}
+		this->numberList1.push_back(current);
+		cout << this->numberList1[b] << " ";
+	}
+
+	cout << endl;
+	cout << "Seven(s) ";
+	for (int b = 0; b < 4; ++b) {
+		string current = "";
+		//Next String.
+		for (int i = 0; i < 7; ++i) {
+			current += (char(rand() % 10) + '0');								// (char(rand() % 10) + '0')
+		}
+		this->numberList3.push_back(current);
+		cout << this->numberList3[b] << " ";
+	}
+
+	cout << endl;
+	cout << "Six(s) ";
+	for (int b = 0; b < 8; ++b) {
+		string current = "";
+		//Next String.
+		for (int i = 0; i < 6; ++i) {
+			current += (char(rand() % 10) + '0');								// (char(rand() % 10) + '0')
+		}
+		this->numberList4.push_back(current);
+		cout << this->numberList4[b] << " ";
+	}
+
+	cout << endl;
+	cout << "Five(s) ";
+	for (int b = 0; b < 7; ++b) {
+		string current = "";
+		//Next String.
+		for (int i = 0; i < 8; ++i) {
+			current += (char(rand() % 10) + '0');								// (char(rand() % 10) + '0')
+		}
+		this->numberList5.push_back(current);
+		cout << this->numberList5[b] << " ";
+	}
+
+	cout << endl;
+	cout << "Nine(s) ";
+	for (int b = 0; b < 4; ++b) {
+		string current = "";
+		//Next String.
+		for (int i = 0; i < 9; ++i) {
+			current += (char(rand() % 10) + '0');								// (char(rand() % 10) + '0')
+		}
+		this->numberList2.push_back(current);
+		cout << this->numberList2[b] << " ";
+	}
+
+
+}
+
+//NEW RMEOVED
+	int count = 0;
+	cout << endl;
+	//Loading horizontal numbers into seperated arrays.
+	for (int i = 0; i < 15; ++i) {
+		if (hList[i].length() == 4) {
+			string current = hList[i];
+			this->fourList[count] = hList[i];
+			++count;
+			
+		}
+	}
+	count = 0;
+	for (int i = 0; i < 15; ++i) {
+		if (hList[i].length() == 5) {
+			string current = hList[i];
+			this->fiveList[count] = hList[i];
+			++count;
+
+		}
+	}
+	count = 0;
+	for (int i = 0; i < 15; ++i) {
+		if (hList[i].length() == 6) {
+			string current = hList[i];
+			this->sixList[count] = hList[i];
+			++count;
+
+		}
+	}
+	count = 0;
+	for (int i = 0; i < 15; ++i) {
+		if (hList[i].length() == 7) {
+			string current = hList[i];
+			this->sevenList[count] = hList[i];
+			++count;
+
+		}
+	}
+	count = 0;
+	for (int i = 0; i < 15; ++i) {
+		if (hList[i].length() == 8) {
+			string current = hList[i];
+			this->eightList[count] = hList[i];
+			++count;
+
+		}
+	}
+	count = 0;
+	for (int i = 0; i < 15; ++i) {
+		if (hList[i].length() == 9) {
+			string current = hList[i];
+			this->nineList[count] = hList[i];
+			++count;
+
+		}
+	}
+
+
+}
+
+void PuzzleEngine::loadHorizontals() {
+	int i = 0;
+	int currentIndex = 0;
+	//
+	while (i < 8) {
+		this->hList[currentIndex] += this->puzzleBoard[0][i];
+		i = i + 1;
+	}
+	++currentIndex;
+	i = 9;
+	//
+	while (i < 15) {
+		this->hList[currentIndex] += this->puzzleBoard[0][i];
+		i = i + 1;
+	}
+	i = 0;
+	++currentIndex;
+	//Next
+	while (i < 8) {
+		this->hList[currentIndex] += this->puzzleBoard[2][i];
+		i = i + 1;
+	}
+	i = 0;
+	++currentIndex;
+	//
+	while (i < 9) {
+		this->hList[currentIndex] += this->puzzleBoard[4][i];
+		i = i + 1;
+	}
+	i = 10;
+	++currentIndex;
+	//
+	while (i < 15) {
+		this->hList[currentIndex] += this->puzzleBoard[4][i];
+		i = i + 1;
+	}
+	i = 3;
+	++currentIndex;
+	//
+	while (i < 7) {
+		this->hList[currentIndex] += this->puzzleBoard[6][i];
+		i = i + 1;
+	}
+	string insert = hList[currentIndex];
+	//this->fourList[0] = this->hList[currentIndex];
+	i = 8;
+	++currentIndex;
+	//
+	while (i < 15) {
+		this->hList[currentIndex] += this->puzzleBoard[6][i];
+		i = i + 1;
+	}
+	i = 0;
+	++currentIndex;
+	//
+	while (i < 7) {
+		this->hList[currentIndex] += this->puzzleBoard[8][i];
+		i = i + 1;
+	}
+	i = 8;
+	++currentIndex;
+	//
+	while (i < 12) {
+		this->hList[currentIndex] += this->puzzleBoard[8][i];
+		i = i + 1;
+	}
+	i = 0;
+	++currentIndex;
+	//
+	while (i < 5) {
+		this->hList[currentIndex] += this->puzzleBoard[10][i];
+		i = i + 1;
+	}
+	i = 6;
+	++currentIndex;
+	while (i < 15) {
+		this->hList[currentIndex] += this->puzzleBoard[10][i];
+		i = i + 1;
+	}
+	i = 0;
+	++currentIndex;
+	//
+	while (i < 6) {
+		this->hList[currentIndex] += this->puzzleBoard[12][i];
+		i = i + 1;
+	}
+	i = 7;
+	++currentIndex;
+	//
+	while (i < 15) {
+		this->hList[currentIndex] += this->puzzleBoard[12][i];
+		i = i + 1;
+	}
+	i = 0;
+	++currentIndex;
+	//
+	while (i < 6) {
+		this->hList[currentIndex] += this->puzzleBoard[14][i];
+		i = i + 1;
+	}
+	i = 7;
+	++currentIndex;
+	//
+	while (i < 15) {
+		this->hList[currentIndex] += this->puzzleBoard[14][i];
+		i = i + 1;
+	}
+	i = 0;
+	currentIndex = 0;
+
+
+
+
+
+
+
+
+
+
+
+	for (int i = 0; i < 15; ++i) {
+		cout << endl;
+		for (int b = 0; b < 15; ++b) {
+			cout << puzzleBoard[i][b];
+		}
+	}
+
+
+	int p = 0;
+	while (p < 15) {
+		cout << endl << "Horizontal List: " << hList[p];
+		++p;
+	}
+
+	/*cout << endl << "TEST" << endl;
+	if (this->hList[0].at(0) < this->hList[1].at(0)) {
+		cout << this->hList[0] << endl << this->hList[1];
+	}
+	else {
+		cout << this->hList[1] << endl << this->hList[0];
+	}*/
+}
